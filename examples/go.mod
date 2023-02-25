@@ -1,3 +1,3 @@
-module github.com/pulumi/pulumi-xyz/examples
+module github.com/thedataflows/pulumi-contabo/examples
 
-go 1.16
+go 1.18

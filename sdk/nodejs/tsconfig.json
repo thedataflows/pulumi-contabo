@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "outDir": "bin",
+        "target": "es2016",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "declaration": true,
+        "sourceMap": true,
+        "stripInternal": true,
+        "experimentalDecorators": true,
+        "noFallthroughCasesInSwitch": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true
+    },
+    "files": [
+        "config/index.ts",
+        "config/vars.ts",
+        "getImage.ts",
+        "getInstance.ts",
+        "getInstanceSnapshot.ts",
+        "getObjectStorage.ts",
+        "getObjectStorageBucket.ts",
+        "getPrivateNetwork.ts",
+        "getSecret.ts",
+        "image.ts",
+        "index.ts",
+        "instance.ts",
+        "instance_snapshot.ts",
+        "object_storage.ts",
+        "object_storage_bucket.ts",
+        "private_network.ts",
+        "provider.ts",
+        "secret.ts",
+        "types/index.ts",
+        "types/input.ts",
+        "types/output.ts",
+        "utilities.ts"
+    ]
+}

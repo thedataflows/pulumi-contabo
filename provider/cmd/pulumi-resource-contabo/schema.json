@@ -1,0 +1,2479 @@
+{
+    "name": "contabo",
+    "description": "A Pulumi package for creating and managing contabo cloud resources.",
+    "keywords": [
+        "pulumi",
+        "contabo",
+        "category/cloud"
+    ],
+    "homepage": "https://www.pulumi.com",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`contabo` Terraform Provider](https://github.com/contabo/terraform-provider-contabo).",
+    "repository": "https://github.com/thedataflows/pulumi-contabo",
+    "publisher": "Pulumi",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "language": {
+        "csharp": {
+            "compatibility": "tfbridge20",
+            "namespaces": null,
+            "packageReferences": {
+                "Pulumi": "3.*"
+            }
+        },
+        "go": {
+            "generateExtraInputTypes": true,
+            "generateResourceContainerTypes": true,
+            "importBasePath": "github.com/pulumi/pulumi-contabo/sdk/go/contabo"
+        },
+        "nodejs": {
+            "compatibility": "tfbridge20",
+            "dependencies": {
+                "@pulumi/pulumi": "^3.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^10.0.0"
+            },
+            "disableUnionOutputTypes": true,
+            "packageDescription": "A Pulumi package for creating and managing contabo cloud resources.",
+            "packageName": "",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/contabo/terraform-provider-contabo)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-contabo` repo](https://github.com/thedataflows/pulumi-contabo/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-contabo` repo](https://github.com/contabo/terraform-provider-contabo/issues).",
+            "typescriptVersion": ""
+        },
+        "python": {
+            "compatibility": "tfbridge20",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/contabo/terraform-provider-contabo)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-contabo` repo](https://github.com/thedataflows/pulumi-contabo/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-contabo` repo](https://github.com/contabo/terraform-provider-contabo/issues).",
+            "requires": {
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
+            }
+        }
+    },
+    "config": {
+        "variables": {
+            "api": {
+                "type": "string",
+                "description": "The api endpoint is https://api.contabo.com.\n"
+            },
+            "oauth2ClientId": {
+                "type": "string",
+                "description": "Your oauth2 client id can be found in the [Customer Control Panel](https://new.contabo.com/account/security) under the\nmenu item account secret.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "CONTABO_OAUTH2_CLIENT_ID"
+                    ]
+                }
+            },
+            "oauth2ClientSecret": {
+                "type": "string",
+                "description": "Your oauth2 client secret can be found in the [Customer Control Panel](https://new.contabo.com/account/security) under\nthe menu item account secret.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "CONTABO_OAUTH2_CLIENT_SECRET"
+                    ]
+                }
+            },
+            "oauth2Pass": {
+                "type": "string",
+                "description": "API Password (this is a new password which you'll set or change in the [Customer Control\nPanel](https://new.contabo.com/account/security) under the menu item account secret.)\n",
+                "defaultInfo": {
+                    "environment": [
+                        "CONTABO_OAUTH2_PASS"
+                    ]
+                }
+            },
+            "oauth2TokenUrl": {
+                "type": "string",
+                "description": "The oauth2 token url is https://auth.contabo.com/auth/realms/contabo/protocol/openid-connect/token.\n"
+            },
+            "oauth2User": {
+                "type": "string",
+                "description": "API User (your email address to login to the [Customer Control Panel](https://new.contabo.com/account/security) under\nthe menu item account secret.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "CONTABO_OAUTH2_USER"
+                    ]
+                }
+            }
+        }
+    },
+    "types": {
+        "contabo:index/getInstanceAddOn:getInstanceAddOn": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "quantity": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "quantity"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "contabo:index/getInstanceAdditionalIpsV4:getInstanceAdditionalIpsV4": {
+            "properties": {
+                "gateway": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ip": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "netmaskCidr": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "gateway",
+                "ip",
+                "netmaskCidr"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "contabo:index/getInstanceIpConfig:getInstanceIpConfig": {
+            "properties": {
+                "v4s": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/getInstanceIpConfigV4:getInstanceIpConfigV4"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "v6s": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/getInstanceIpConfigV6:getInstanceIpConfigV6"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "v4s",
+                "v6s"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "contabo:index/getInstanceIpConfigV4:getInstanceIpConfigV4": {
+            "properties": {
+                "gateway": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ip": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "netmaskCidr": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "gateway",
+                "ip",
+                "netmaskCidr"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "contabo:index/getInstanceIpConfigV6:getInstanceIpConfigV6": {
+            "properties": {
+                "gateway": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ip": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "netmaskCidr": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "gateway",
+                "ip",
+                "netmaskCidr"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "contabo:index/getObjectStorageAutoScaling:getObjectStorageAutoScaling": {
+            "properties": {
+                "errorMessage": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sizeLimitTb": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "state": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "errorMessage",
+                "sizeLimitTb",
+                "state"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "contabo:index/getPrivateNetworkInstance:getPrivateNetworkInstance": {
+            "properties": {
+                "displayName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "errorMessage": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "instanceId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "privateIpConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/getPrivateNetworkInstancePrivateIpConfig:getPrivateNetworkInstancePrivateIpConfig"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "displayName",
+                "errorMessage",
+                "instanceId",
+                "name",
+                "privateIpConfigs",
+                "status"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "contabo:index/getPrivateNetworkInstancePrivateIpConfig:getPrivateNetworkInstancePrivateIpConfig": {
+            "properties": {
+                "v4s": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/getPrivateNetworkInstancePrivateIpConfigV4:getPrivateNetworkInstancePrivateIpConfigV4"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "v4s"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "contabo:index/getPrivateNetworkInstancePrivateIpConfigV4:getPrivateNetworkInstancePrivateIpConfigV4": {
+            "properties": {
+                "gateway": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ip": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "netmaskCidr": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "gateway",
+                "ip",
+                "netmaskCidr"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "contabo:index/instanceAddOn:instanceAddOn": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "quantity": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "quantity"
+                    ]
+                }
+            }
+        },
+        "contabo:index/instanceAdditionalIp:instanceAdditionalIp": {
+            "properties": {
+                "v4s": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/instanceAdditionalIpV4:instanceAdditionalIpV4"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "v4s"
+                    ]
+                }
+            }
+        },
+        "contabo:index/instanceAdditionalIpV4:instanceAdditionalIpV4": {
+            "properties": {
+                "gateway": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ip": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "netmaskCidr": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "gateway",
+                        "ip",
+                        "netmaskCidr"
+                    ]
+                }
+            }
+        },
+        "contabo:index/instanceIpConfig:instanceIpConfig": {
+            "properties": {
+                "v4s": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/instanceIpConfigV4:instanceIpConfigV4"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "v6s": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/instanceIpConfigV6:instanceIpConfigV6"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "v4s",
+                        "v6s"
+                    ]
+                }
+            }
+        },
+        "contabo:index/instanceIpConfigV4:instanceIpConfigV4": {
+            "properties": {
+                "gateway": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ip": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "netmaskCidr": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "gateway",
+                        "ip",
+                        "netmaskCidr"
+                    ]
+                }
+            }
+        },
+        "contabo:index/instanceIpConfigV6:instanceIpConfigV6": {
+            "properties": {
+                "gateway": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ip": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "netmaskCidr": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "gateway",
+                        "ip",
+                        "netmaskCidr"
+                    ]
+                }
+            }
+        },
+        "contabo:index/object_storageAutoScaling:object_storageAutoScaling": {
+            "properties": {
+                "errorMessage": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sizeLimitTb": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "state": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "contabo:index/private_networkInstance:private_networkInstance": {
+            "properties": {
+                "displayName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "errorMessage": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "instanceId": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "privateIpConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/private_networkInstancePrivateIpConfig:private_networkInstancePrivateIpConfig"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "displayName",
+                        "errorMessage",
+                        "instanceId",
+                        "name",
+                        "privateIpConfigs",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "contabo:index/private_networkInstancePrivateIpConfig:private_networkInstancePrivateIpConfig": {
+            "properties": {
+                "v4s": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/private_networkInstancePrivateIpConfigV4:private_networkInstancePrivateIpConfigV4"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "v4s"
+                    ]
+                }
+            }
+        },
+        "contabo:index/private_networkInstancePrivateIpConfigV4:private_networkInstancePrivateIpConfigV4": {
+            "properties": {
+                "gateway": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ip": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "netmaskCidr": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "gateway",
+                        "ip",
+                        "netmaskCidr"
+                    ]
+                }
+            }
+        }
+    },
+    "provider": {
+        "description": "The provider type for the contabo package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "api": {
+                "type": "string",
+                "description": "The api endpoint is https://api.contabo.com.\n"
+            },
+            "oauth2ClientId": {
+                "type": "string",
+                "description": "Your oauth2 client id can be found in the [Customer Control Panel](https://new.contabo.com/account/security) under the\nmenu item account secret.\n"
+            },
+            "oauth2ClientSecret": {
+                "type": "string",
+                "description": "Your oauth2 client secret can be found in the [Customer Control Panel](https://new.contabo.com/account/security) under\nthe menu item account secret.\n"
+            },
+            "oauth2Pass": {
+                "type": "string",
+                "description": "API Password (this is a new password which you'll set or change in the [Customer Control\nPanel](https://new.contabo.com/account/security) under the menu item account secret.)\n"
+            },
+            "oauth2TokenUrl": {
+                "type": "string",
+                "description": "The oauth2 token url is https://auth.contabo.com/auth/realms/contabo/protocol/openid-connect/token.\n"
+            },
+            "oauth2User": {
+                "type": "string",
+                "description": "API User (your email address to login to the [Customer Control Panel](https://new.contabo.com/account/security) under\nthe menu item account secret.\n"
+            }
+        },
+        "inputProperties": {
+            "api": {
+                "type": "string",
+                "description": "The api endpoint is https://api.contabo.com.\n"
+            },
+            "oauth2ClientId": {
+                "type": "string",
+                "description": "Your oauth2 client id can be found in the [Customer Control Panel](https://new.contabo.com/account/security) under the\nmenu item account secret.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "CONTABO_OAUTH2_CLIENT_ID"
+                    ]
+                }
+            },
+            "oauth2ClientSecret": {
+                "type": "string",
+                "description": "Your oauth2 client secret can be found in the [Customer Control Panel](https://new.contabo.com/account/security) under\nthe menu item account secret.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "CONTABO_OAUTH2_CLIENT_SECRET"
+                    ]
+                }
+            },
+            "oauth2Pass": {
+                "type": "string",
+                "description": "API Password (this is a new password which you'll set or change in the [Customer Control\nPanel](https://new.contabo.com/account/security) under the menu item account secret.)\n",
+                "defaultInfo": {
+                    "environment": [
+                        "CONTABO_OAUTH2_PASS"
+                    ]
+                }
+            },
+            "oauth2TokenUrl": {
+                "type": "string",
+                "description": "The oauth2 token url is https://auth.contabo.com/auth/realms/contabo/protocol/openid-connect/token.\n"
+            },
+            "oauth2User": {
+                "type": "string",
+                "description": "API User (your email address to login to the [Customer Control Panel](https://new.contabo.com/account/security) under\nthe menu item account secret.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "CONTABO_OAUTH2_USER"
+                    ]
+                }
+            }
+        }
+    },
+    "resources": {
+        "contabo:index/image:image": {
+            "properties": {
+                "creationDate": {
+                    "type": "string",
+                    "description": "The creation date of the image.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the image.\n"
+                },
+                "errorMessage": {
+                    "type": "string",
+                    "description": "If the image is in an error state (see status property), the error message can be seen in this field.\n"
+                },
+                "format": {
+                    "type": "string",
+                    "description": "Format of your image `iso` or `qcow`.\n"
+                },
+                "imageUrl": {
+                    "type": "string",
+                    "description": "URL from which the image has been downloaded.\n"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Time of the last update of the image.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the image.\n"
+                },
+                "osType": {
+                    "type": "string",
+                    "description": "Provided type of operating system (OS). Please specify Windows for MS `Windows` and `Linux` for other OS. Specifying\nwrong OS type may lead to disfunctional cloud instance.\n"
+                },
+                "standardImage": {
+                    "type": "boolean",
+                    "description": "Flag indicating that the image is either a standard (true) or a custom image (false).\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Downloading status of the image (`downloading`, `downloaded` or `error`).\n"
+                },
+                "uploadedSizeMb": {
+                    "type": "integer",
+                    "description": "The size of the uploaded image in megabyte.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Version number to distinguish the contents of an image e.g. the version of the operating system.\n"
+                }
+            },
+            "required": [
+                "creationDate",
+                "description",
+                "errorMessage",
+                "format",
+                "imageUrl",
+                "lastUpdated",
+                "name",
+                "osType",
+                "standardImage",
+                "status",
+                "uploadedSizeMb",
+                "version"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the image.\n"
+                },
+                "imageUrl": {
+                    "type": "string",
+                    "description": "URL from which the image has been downloaded.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the image.\n"
+                },
+                "osType": {
+                    "type": "string",
+                    "description": "Provided type of operating system (OS). Please specify Windows for MS `Windows` and `Linux` for other OS. Specifying\nwrong OS type may lead to disfunctional cloud instance.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Version number to distinguish the contents of an image e.g. the version of the operating system.\n"
+                }
+            },
+            "requiredInputs": [
+                "description",
+                "imageUrl",
+                "osType",
+                "version"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering image resources.\n",
+                "properties": {
+                    "creationDate": {
+                        "type": "string",
+                        "description": "The creation date of the image.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the image.\n"
+                    },
+                    "errorMessage": {
+                        "type": "string",
+                        "description": "If the image is in an error state (see status property), the error message can be seen in this field.\n"
+                    },
+                    "format": {
+                        "type": "string",
+                        "description": "Format of your image `iso` or `qcow`.\n"
+                    },
+                    "imageUrl": {
+                        "type": "string",
+                        "description": "URL from which the image has been downloaded.\n"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Time of the last update of the image.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the image.\n"
+                    },
+                    "osType": {
+                        "type": "string",
+                        "description": "Provided type of operating system (OS). Please specify Windows for MS `Windows` and `Linux` for other OS. Specifying\nwrong OS type may lead to disfunctional cloud instance.\n"
+                    },
+                    "standardImage": {
+                        "type": "boolean",
+                        "description": "Flag indicating that the image is either a standard (true) or a custom image (false).\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Downloading status of the image (`downloading`, `downloaded` or `error`).\n"
+                    },
+                    "uploadedSizeMb": {
+                        "type": "integer",
+                        "description": "The size of the uploaded image in megabyte.\n"
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "Version number to distinguish the contents of an image e.g. the version of the operating system.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "contabo:index/instance:instance": {
+            "properties": {
+                "addOns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/instanceAddOn:instanceAddOn"
+                    }
+                },
+                "additionalIps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/instanceAdditionalIp:instanceAdditionalIp"
+                    },
+                    "description": "All other additional IP addresses of the instance.\n"
+                },
+                "cancelDate": {
+                    "type": "string",
+                    "description": "The date on which the instance will be cancelled.\n"
+                },
+                "cpuCores": {
+                    "type": "integer",
+                    "description": "CPU core count of the instance.\n"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "description": "The creation date of the compute instance.\n"
+                },
+                "diskMb": {
+                    "type": "integer",
+                    "description": "Image disk size of the instance in megabyte.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The instance name chosen by the customer that will be shown in the customer panel.\n"
+                },
+                "errorMessage": {
+                    "type": "string",
+                    "description": "If the instance is in an error state (see status property), the error message can be seen in this field.\n"
+                },
+                "imageId": {
+                    "type": "string",
+                    "description": "CAUTION: On updating this value your server will be reinstalled! Image Id is used to set up the compute instance. Ubuntu\n20.04 is the default, currently you have to get the Id with our\n[API](https://api.contabo.com/#tag/Images/operation/retrieveImage) or via our [command\nline](https://github.com/contabo/cntb) tool with this command: `cntb get images`.\n"
+                },
+                "ipConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/instanceIpConfig:instanceIpConfig"
+                    }
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Time of the last update of the compute instance.\n"
+                },
+                "license": {
+                    "type": "string",
+                    "description": "Additional license in order to enhance your chosen product. It is mainly needed for software licenses on your product\n(not needed for windows). See our [api documentation](https://api.contabo.com/#tag/Instances/operation/createInstance)\nfor all available licenses.\n"
+                },
+                "macAddress": {
+                    "type": "string",
+                    "description": "Mac address of the instance.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the compute instance.\n"
+                },
+                "osType": {
+                    "type": "string",
+                    "description": "Type of operating system (OS) installed on the instance.\n"
+                },
+                "period": {
+                    "type": "integer",
+                    "description": "Initial contract period in months. Available periods are: 1, 3, 6 and 12 months. The default setting is 1 month.\n"
+                },
+                "productId": {
+                    "type": "string",
+                    "description": "Choose the VPS/VDS product you want to buy. See our products\n[here](https://api.contabo.com/#tag/Instances/operation/createInstance).\n"
+                },
+                "productType": {
+                    "type": "string",
+                    "description": "InsInstance's category depending on Product Id. Following product types are available: `hdd`,`ssd`,`vds`,`nvme`.\n"
+                },
+                "ramMb": {
+                    "type": "integer",
+                    "description": "Image ram size in megabyte.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "Instance Region where the compute instance should be located. Default region is the EU. Following regions are available:\n`EU`,`US-central`,`US-east`,`US-west`,`SIN`.\n"
+                },
+                "rootPassword": {
+                    "type": "integer",
+                    "description": "CAUTION: On updating this value your server will be reinstalled! Root password of the compute instance.\n"
+                },
+                "sshKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "CAUTION: On updating this value your server will be reinstalled! Array of `secretIds` of public SSH keys for logging\ninto as defaultUser with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management\nAPI.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the compute instance. The status can be set to `provisioning`, `uninstalled`, `running`, `stopped`, `error`,\n`installing`, `unknown`, or `installed`.\n"
+                },
+                "userData": {
+                    "type": "string",
+                    "description": "CAUTION: On updating this value your server will be reinstalled! Cloud-Init Config in order to customize during start of\ncompute instance.\n"
+                },
+                "vHostId": {
+                    "type": "integer",
+                    "description": "Identifier of the host system.\n"
+                }
+            },
+            "required": [
+                "addOns",
+                "additionalIps",
+                "cpuCores",
+                "createdDate",
+                "diskMb",
+                "displayName",
+                "errorMessage",
+                "imageId",
+                "ipConfigs",
+                "lastUpdated",
+                "license",
+                "macAddress",
+                "name",
+                "osType",
+                "period",
+                "productId",
+                "productType",
+                "ramMb",
+                "region",
+                "sshKeys",
+                "status",
+                "vHostId"
+            ],
+            "inputProperties": {
+                "addOns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/instanceAddOn:instanceAddOn"
+                    }
+                },
+                "cancelDate": {
+                    "type": "string",
+                    "description": "The date on which the instance will be cancelled.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The instance name chosen by the customer that will be shown in the customer panel.\n"
+                },
+                "imageId": {
+                    "type": "string",
+                    "description": "CAUTION: On updating this value your server will be reinstalled! Image Id is used to set up the compute instance. Ubuntu\n20.04 is the default, currently you have to get the Id with our\n[API](https://api.contabo.com/#tag/Images/operation/retrieveImage) or via our [command\nline](https://github.com/contabo/cntb) tool with this command: `cntb get images`.\n"
+                },
+                "license": {
+                    "type": "string",
+                    "description": "Additional license in order to enhance your chosen product. It is mainly needed for software licenses on your product\n(not needed for windows). See our [api documentation](https://api.contabo.com/#tag/Instances/operation/createInstance)\nfor all available licenses.\n"
+                },
+                "period": {
+                    "type": "integer",
+                    "description": "Initial contract period in months. Available periods are: 1, 3, 6 and 12 months. The default setting is 1 month.\n"
+                },
+                "productId": {
+                    "type": "string",
+                    "description": "Choose the VPS/VDS product you want to buy. See our products\n[here](https://api.contabo.com/#tag/Instances/operation/createInstance).\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "Instance Region where the compute instance should be located. Default region is the EU. Following regions are available:\n`EU`,`US-central`,`US-east`,`US-west`,`SIN`.\n"
+                },
+                "rootPassword": {
+                    "type": "integer",
+                    "description": "CAUTION: On updating this value your server will be reinstalled! Root password of the compute instance.\n"
+                },
+                "sshKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "CAUTION: On updating this value your server will be reinstalled! Array of `secretIds` of public SSH keys for logging\ninto as defaultUser with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management\nAPI.\n"
+                },
+                "userData": {
+                    "type": "string",
+                    "description": "CAUTION: On updating this value your server will be reinstalled! Cloud-Init Config in order to customize during start of\ncompute instance.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering instance resources.\n",
+                "properties": {
+                    "addOns": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/contabo:index/instanceAddOn:instanceAddOn"
+                        }
+                    },
+                    "additionalIps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/contabo:index/instanceAdditionalIp:instanceAdditionalIp"
+                        },
+                        "description": "All other additional IP addresses of the instance.\n"
+                    },
+                    "cancelDate": {
+                        "type": "string",
+                        "description": "The date on which the instance will be cancelled.\n"
+                    },
+                    "cpuCores": {
+                        "type": "integer",
+                        "description": "CPU core count of the instance.\n"
+                    },
+                    "createdDate": {
+                        "type": "string",
+                        "description": "The creation date of the compute instance.\n"
+                    },
+                    "diskMb": {
+                        "type": "integer",
+                        "description": "Image disk size of the instance in megabyte.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "The instance name chosen by the customer that will be shown in the customer panel.\n"
+                    },
+                    "errorMessage": {
+                        "type": "string",
+                        "description": "If the instance is in an error state (see status property), the error message can be seen in this field.\n"
+                    },
+                    "imageId": {
+                        "type": "string",
+                        "description": "CAUTION: On updating this value your server will be reinstalled! Image Id is used to set up the compute instance. Ubuntu\n20.04 is the default, currently you have to get the Id with our\n[API](https://api.contabo.com/#tag/Images/operation/retrieveImage) or via our [command\nline](https://github.com/contabo/cntb) tool with this command: `cntb get images`.\n"
+                    },
+                    "ipConfigs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/contabo:index/instanceIpConfig:instanceIpConfig"
+                        }
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Time of the last update of the compute instance.\n"
+                    },
+                    "license": {
+                        "type": "string",
+                        "description": "Additional license in order to enhance your chosen product. It is mainly needed for software licenses on your product\n(not needed for windows). See our [api documentation](https://api.contabo.com/#tag/Instances/operation/createInstance)\nfor all available licenses.\n"
+                    },
+                    "macAddress": {
+                        "type": "string",
+                        "description": "Mac address of the instance.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the compute instance.\n"
+                    },
+                    "osType": {
+                        "type": "string",
+                        "description": "Type of operating system (OS) installed on the instance.\n"
+                    },
+                    "period": {
+                        "type": "integer",
+                        "description": "Initial contract period in months. Available periods are: 1, 3, 6 and 12 months. The default setting is 1 month.\n"
+                    },
+                    "productId": {
+                        "type": "string",
+                        "description": "Choose the VPS/VDS product you want to buy. See our products\n[here](https://api.contabo.com/#tag/Instances/operation/createInstance).\n"
+                    },
+                    "productType": {
+                        "type": "string",
+                        "description": "InsInstance's category depending on Product Id. Following product types are available: `hdd`,`ssd`,`vds`,`nvme`.\n"
+                    },
+                    "ramMb": {
+                        "type": "integer",
+                        "description": "Image ram size in megabyte.\n"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Instance Region where the compute instance should be located. Default region is the EU. Following regions are available:\n`EU`,`US-central`,`US-east`,`US-west`,`SIN`.\n"
+                    },
+                    "rootPassword": {
+                        "type": "integer",
+                        "description": "CAUTION: On updating this value your server will be reinstalled! Root password of the compute instance.\n"
+                    },
+                    "sshKeys": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "CAUTION: On updating this value your server will be reinstalled! Array of `secretIds` of public SSH keys for logging\ninto as defaultUser with administrator/root privileges. Applies to Linux/BSD systems. Please refer to Secrets Management\nAPI.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the compute instance. The status can be set to `provisioning`, `uninstalled`, `running`, `stopped`, `error`,\n`installing`, `unknown`, or `installed`.\n"
+                    },
+                    "userData": {
+                        "type": "string",
+                        "description": "CAUTION: On updating this value your server will be reinstalled! Cloud-Init Config in order to customize during start of\ncompute instance.\n"
+                    },
+                    "vHostId": {
+                        "type": "integer",
+                        "description": "Identifier of the host system.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "contabo:index/instance_snapshot:instance_snapshot": {
+            "properties": {
+                "autoDeleteDate": {
+                    "type": "string",
+                    "description": "The date when the snapshot will be autmatically deleted.\n"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "description": "The creation date of this instance snapshot.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of this snapshot.\n"
+                },
+                "imageId": {
+                    "type": "string",
+                    "description": "Id of the Image the snapshot was taken from.\n"
+                },
+                "imageName": {
+                    "type": "string",
+                    "description": "Name of the Image the snapshot was taken from.\n"
+                },
+                "instanceId": {
+                    "type": "integer",
+                    "description": "Instance identifier associated with the snapshot.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the snapshot.\n"
+                }
+            },
+            "required": [
+                "autoDeleteDate",
+                "createdDate",
+                "imageId",
+                "imageName",
+                "name"
+            ],
+            "inputProperties": {
+                "createdDate": {
+                    "type": "string",
+                    "description": "The creation date of this instance snapshot.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of this snapshot.\n"
+                },
+                "instanceId": {
+                    "type": "integer",
+                    "description": "Instance identifier associated with the snapshot.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the snapshot.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering instance_snapshot resources.\n",
+                "properties": {
+                    "autoDeleteDate": {
+                        "type": "string",
+                        "description": "The date when the snapshot will be autmatically deleted.\n"
+                    },
+                    "createdDate": {
+                        "type": "string",
+                        "description": "The creation date of this instance snapshot.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of this snapshot.\n"
+                    },
+                    "imageId": {
+                        "type": "string",
+                        "description": "Id of the Image the snapshot was taken from.\n"
+                    },
+                    "imageName": {
+                        "type": "string",
+                        "description": "Name of the Image the snapshot was taken from.\n"
+                    },
+                    "instanceId": {
+                        "type": "integer",
+                        "description": "Instance identifier associated with the snapshot.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the snapshot.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "contabo:index/object_storage:object_storage": {
+            "properties": {
+                "autoScalings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/object_storageAutoScaling:object_storageAutoScaling"
+                    }
+                },
+                "cancelDate": {
+                    "type": "string",
+                    "description": "The date on which the Object Storage will be cancelled and therefore no longer available.\n"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "description": "The creation date of the Object Storage.\n"
+                },
+                "customerId": {
+                    "type": "string",
+                    "description": "Your customer number.\n"
+                },
+                "dataCenter": {
+                    "type": "string",
+                    "description": "Data center the object storage is located in.\n"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name for object storage.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "Region where the Object Storage should be located. Default region is the EU. Following regions are available:\n`EU`,`US-central`, `SIN`.\n"
+                },
+                "s3TenantId": {
+                    "type": "string",
+                    "description": "Your S3 tenant Id. Only required for public sharing.\n"
+                },
+                "s3Url": {
+                    "type": "string",
+                    "description": "S3 URL to connect to your S3 compatible Object Storage.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The object storage status. It can be set to `PROVISIONING`,`READY`,`UPGRADING`,`CANCELLED`,`ERROR` or `DISABLED`.\n"
+                },
+                "tenantId": {
+                    "type": "string",
+                    "description": "Your customer tenant Id.\n"
+                },
+                "totalPurchasedSpaceTb": {
+                    "type": "number",
+                    "description": "Amount of purchased / requested object storage in terabyte.\n"
+                }
+            },
+            "required": [
+                "cancelDate",
+                "createdDate",
+                "customerId",
+                "dataCenter",
+                "displayName",
+                "region",
+                "s3TenantId",
+                "s3Url",
+                "status",
+                "tenantId",
+                "totalPurchasedSpaceTb"
+            ],
+            "inputProperties": {
+                "autoScalings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/object_storageAutoScaling:object_storageAutoScaling"
+                    }
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name for object storage.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "Region where the Object Storage should be located. Default region is the EU. Following regions are available:\n`EU`,`US-central`, `SIN`.\n"
+                },
+                "totalPurchasedSpaceTb": {
+                    "type": "number",
+                    "description": "Amount of purchased / requested object storage in terabyte.\n"
+                }
+            },
+            "requiredInputs": [
+                "region",
+                "totalPurchasedSpaceTb"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering object_storage resources.\n",
+                "properties": {
+                    "autoScalings": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/contabo:index/object_storageAutoScaling:object_storageAutoScaling"
+                        }
+                    },
+                    "cancelDate": {
+                        "type": "string",
+                        "description": "The date on which the Object Storage will be cancelled and therefore no longer available.\n"
+                    },
+                    "createdDate": {
+                        "type": "string",
+                        "description": "The creation date of the Object Storage.\n"
+                    },
+                    "customerId": {
+                        "type": "string",
+                        "description": "Your customer number.\n"
+                    },
+                    "dataCenter": {
+                        "type": "string",
+                        "description": "Data center the object storage is located in.\n"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "Display name for object storage.\n"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Region where the Object Storage should be located. Default region is the EU. Following regions are available:\n`EU`,`US-central`, `SIN`.\n"
+                    },
+                    "s3TenantId": {
+                        "type": "string",
+                        "description": "Your S3 tenant Id. Only required for public sharing.\n"
+                    },
+                    "s3Url": {
+                        "type": "string",
+                        "description": "S3 URL to connect to your S3 compatible Object Storage.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The object storage status. It can be set to `PROVISIONING`,`READY`,`UPGRADING`,`CANCELLED`,`ERROR` or `DISABLED`.\n"
+                    },
+                    "tenantId": {
+                        "type": "string",
+                        "description": "Your customer tenant Id.\n"
+                    },
+                    "totalPurchasedSpaceTb": {
+                        "type": "number",
+                        "description": "Amount of purchased / requested object storage in terabyte.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "contabo:index/object_storage_bucket:object_storage_bucket": {
+            "properties": {
+                "creationDate": {
+                    "type": "string",
+                    "description": "The creation date of the bucket.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of your bucket, consider the naming restriction\nhttps://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-s3-bucket-naming-requirements.html.\n"
+                },
+                "objectStorageId": {
+                    "type": "string",
+                    "description": "The contabo objectStorageId on which the bucket should be created.\n"
+                },
+                "publicSharing": {
+                    "type": "boolean",
+                    "description": "Choose the access to your bucket. You can not share it at all or share it publicly.\n"
+                },
+                "publicSharingLink": {
+                    "type": "string",
+                    "description": "If your bucket is publicly shared, you can access it with this link.\n"
+                }
+            },
+            "required": [
+                "creationDate",
+                "name",
+                "objectStorageId",
+                "publicSharingLink"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of your bucket, consider the naming restriction\nhttps://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-s3-bucket-naming-requirements.html.\n"
+                },
+                "objectStorageId": {
+                    "type": "string",
+                    "description": "The contabo objectStorageId on which the bucket should be created.\n"
+                },
+                "publicSharing": {
+                    "type": "boolean",
+                    "description": "Choose the access to your bucket. You can not share it at all or share it publicly.\n"
+                }
+            },
+            "requiredInputs": [
+                "objectStorageId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering object_storage_bucket resources.\n",
+                "properties": {
+                    "creationDate": {
+                        "type": "string",
+                        "description": "The creation date of the bucket.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of your bucket, consider the naming restriction\nhttps://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-s3-bucket-naming-requirements.html.\n"
+                    },
+                    "objectStorageId": {
+                        "type": "string",
+                        "description": "The contabo objectStorageId on which the bucket should be created.\n"
+                    },
+                    "publicSharing": {
+                        "type": "boolean",
+                        "description": "Choose the access to your bucket. You can not share it at all or share it publicly.\n"
+                    },
+                    "publicSharingLink": {
+                        "type": "string",
+                        "description": "If your bucket is publicly shared, you can access it with this link.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "contabo:index/private_network:private_network": {
+            "properties": {
+                "availableIps": {
+                    "type": "integer",
+                    "description": "The totality of available IPs in the Private Network.\n"
+                },
+                "cidr": {
+                    "type": "string",
+                    "description": "The cidr range of the Private Network.\n"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "description": "The creation date of the Private Network.\n"
+                },
+                "dataCenter": {
+                    "type": "string",
+                    "description": "The specific data center where the Private Network is located.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Private Network. There is a limit of 255 characters per Private Network.\n"
+                },
+                "instanceIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "Add the instace Ids to the private network here. If you do not add any instance Ids an empty private network will be\ncreated.\n"
+                },
+                "instances": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/contabo:index/private_networkInstance:private_networkInstance"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Private Network. It may contain letters, numbers, colons, dashes, and underscores. There is a limit of\n255 characters per Private Network name.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The region where the Private Network should be located. Default region is the EU.\n"
+                },
+                "regionName": {
+                    "type": "string",
+                    "description": "The name of the region where the Private Network is located.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time of the last update of the private network.\n"
+                }
+            },
+            "required": [
+                "availableIps",
+                "cidr",
+                "createdDate",
+                "dataCenter",
+                "instances",
+                "name",
+                "regionName",
+                "updatedAt"
+            ],
+            "inputProperties": {
+                "createdDate": {
+                    "type": "string",
+                    "description": "The creation date of the Private Network.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the Private Network. There is a limit of 255 characters per Private Network.\n"
+                },
+                "instanceIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "description": "Add the instace Ids to the private network here. If you do not add any instance Ids an empty private network will be\ncreated.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Private Network. It may contain letters, numbers, colons, dashes, and underscores. There is a limit of\n255 characters per Private Network name.\n"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The region where the Private Network should be located. Default region is the EU.\n"
+                },
+                "regionName": {
+                    "type": "string",
+                    "description": "The name of the region where the Private Network is located.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time of the last update of the private network.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering private_network resources.\n",
+                "properties": {
+                    "availableIps": {
+                        "type": "integer",
+                        "description": "The totality of available IPs in the Private Network.\n"
+                    },
+                    "cidr": {
+                        "type": "string",
+                        "description": "The cidr range of the Private Network.\n"
+                    },
+                    "createdDate": {
+                        "type": "string",
+                        "description": "The creation date of the Private Network.\n"
+                    },
+                    "dataCenter": {
+                        "type": "string",
+                        "description": "The specific data center where the Private Network is located.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the Private Network. There is a limit of 255 characters per Private Network.\n"
+                    },
+                    "instanceIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "Add the instace Ids to the private network here. If you do not add any instance Ids an empty private network will be\ncreated.\n"
+                    },
+                    "instances": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/contabo:index/private_networkInstance:private_networkInstance"
+                        }
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Private Network. It may contain letters, numbers, colons, dashes, and underscores. There is a limit of\n255 characters per Private Network name.\n"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "The region where the Private Network should be located. Default region is the EU.\n"
+                    },
+                    "regionName": {
+                        "type": "string",
+                        "description": "The name of the region where the Private Network is located.\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Time of the last update of the private network.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "contabo:index/secret:secret": {
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "The creation date of the secret.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the secret.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the secret. It will be available only when retrieving secrets, following types are allowed: `ssh`,\n`password`.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Last updated time of the secret.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value of the secret. It will be available only when retrieving a single secret.\n"
+                }
+            },
+            "required": [
+                "createdAt",
+                "name",
+                "type",
+                "updatedAt",
+                "value"
+            ],
+            "inputProperties": {
+                "createdAt": {
+                    "type": "string",
+                    "description": "The creation date of the secret.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the secret.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the secret. It will be available only when retrieving secrets, following types are allowed: `ssh`,\n`password`.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Last updated time of the secret.\n"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value of the secret. It will be available only when retrieving a single secret.\n"
+                }
+            },
+            "requiredInputs": [
+                "type",
+                "value"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering secret resources.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string",
+                        "description": "The creation date of the secret.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the secret.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of the secret. It will be available only when retrieving secrets, following types are allowed: `ssh`,\n`password`.\n"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Last updated time of the secret.\n"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The value of the secret. It will be available only when retrieving a single secret.\n"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "contabo:index/getImage:getImage": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getImage.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getImage.\n",
+                "properties": {
+                    "creationDate": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "errorMessage": {
+                        "type": "string"
+                    },
+                    "format": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "lastUpdated": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "osType": {
+                        "type": "string"
+                    },
+                    "standardImage": {
+                        "type": "boolean"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "uploadedSizeMb": {
+                        "type": "integer"
+                    },
+                    "version": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "creationDate",
+                    "description",
+                    "errorMessage",
+                    "format",
+                    "id",
+                    "lastUpdated",
+                    "name",
+                    "osType",
+                    "standardImage",
+                    "status",
+                    "uploadedSizeMb",
+                    "version"
+                ]
+            }
+        },
+        "contabo:index/getInstance:getInstance": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getInstance.\n",
+                "properties": {
+                    "addOns": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/contabo:index/getInstanceAddOn:getInstanceAddOn"
+                        }
+                    },
+                    "cancelDate": {
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "imageId": {
+                        "type": "string"
+                    },
+                    "license": {
+                        "type": "string"
+                    },
+                    "productId": {
+                        "type": "string"
+                    },
+                    "region": {
+                        "type": "string"
+                    },
+                    "sshKeys": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "userData": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getInstance.\n",
+                "properties": {
+                    "addOns": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/contabo:index/getInstanceAddOn:getInstanceAddOn"
+                        }
+                    },
+                    "additionalIpsV4s": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/contabo:index/getInstanceAdditionalIpsV4:getInstanceAdditionalIpsV4"
+                        }
+                    },
+                    "cancelDate": {
+                        "type": "string"
+                    },
+                    "cpuCores": {
+                        "type": "integer"
+                    },
+                    "createdDate": {
+                        "type": "string"
+                    },
+                    "diskMb": {
+                        "type": "integer"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "errorMessage": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "imageId": {
+                        "type": "string"
+                    },
+                    "ipConfigs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/contabo:index/getInstanceIpConfig:getInstanceIpConfig"
+                        }
+                    },
+                    "lastUpdated": {
+                        "type": "string"
+                    },
+                    "license": {
+                        "type": "string"
+                    },
+                    "macAddress": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "osType": {
+                        "type": "string"
+                    },
+                    "period": {
+                        "type": "integer"
+                    },
+                    "productId": {
+                        "type": "string"
+                    },
+                    "productType": {
+                        "type": "string"
+                    },
+                    "ramMb": {
+                        "type": "integer"
+                    },
+                    "region": {
+                        "type": "string"
+                    },
+                    "sshKeys": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "userData": {
+                        "type": "string"
+                    },
+                    "vHostId": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "addOns",
+                    "additionalIpsV4s",
+                    "cancelDate",
+                    "cpuCores",
+                    "createdDate",
+                    "diskMb",
+                    "displayName",
+                    "errorMessage",
+                    "id",
+                    "imageId",
+                    "ipConfigs",
+                    "lastUpdated",
+                    "license",
+                    "macAddress",
+                    "name",
+                    "osType",
+                    "period",
+                    "productId",
+                    "productType",
+                    "ramMb",
+                    "region",
+                    "sshKeys",
+                    "status",
+                    "userData",
+                    "vHostId"
+                ]
+            }
+        },
+        "contabo:index/getInstanceSnapshot:getInstanceSnapshot": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getInstanceSnapshot.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "instanceId": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getInstanceSnapshot.\n",
+                "properties": {
+                    "autoDeleteDate": {
+                        "type": "string"
+                    },
+                    "createdDate": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "imageId": {
+                        "type": "string"
+                    },
+                    "imageName": {
+                        "type": "string"
+                    },
+                    "instanceId": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "autoDeleteDate",
+                    "createdDate",
+                    "id",
+                    "imageId",
+                    "imageName"
+                ]
+            }
+        },
+        "contabo:index/getObjectStorage:getObjectStorage": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getObjectStorage.\n",
+                "properties": {
+                    "autoScalings": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/contabo:index/getObjectStorageAutoScaling:getObjectStorageAutoScaling"
+                        }
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getObjectStorage.\n",
+                "properties": {
+                    "autoScalings": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/contabo:index/getObjectStorageAutoScaling:getObjectStorageAutoScaling"
+                        }
+                    },
+                    "cancelDate": {
+                        "type": "string"
+                    },
+                    "createdDate": {
+                        "type": "string"
+                    },
+                    "customerId": {
+                        "type": "string"
+                    },
+                    "dataCenter": {
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "region": {
+                        "type": "string"
+                    },
+                    "s3TenantId": {
+                        "type": "string"
+                    },
+                    "s3Url": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "tenantId": {
+                        "type": "string"
+                    },
+                    "totalPurchasedSpaceTb": {
+                        "type": "number"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "autoScalings",
+                    "cancelDate",
+                    "createdDate",
+                    "customerId",
+                    "dataCenter",
+                    "displayName",
+                    "id",
+                    "region",
+                    "s3TenantId",
+                    "s3Url",
+                    "status",
+                    "tenantId",
+                    "totalPurchasedSpaceTb"
+                ]
+            }
+        },
+        "contabo:index/getObjectStorageBucket:getObjectStorageBucket": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getObjectStorageBucket.\n",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "objectStorageId": {
+                        "type": "string"
+                    },
+                    "publicSharing": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "objectStorageId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getObjectStorageBucket.\n",
+                "properties": {
+                    "creationDate": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "objectStorageId": {
+                        "type": "string"
+                    },
+                    "publicSharing": {
+                        "type": "boolean"
+                    },
+                    "publicSharingLink": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "creationDate",
+                    "name",
+                    "objectStorageId",
+                    "publicSharingLink",
+                    "id"
+                ]
+            }
+        },
+        "contabo:index/getPrivateNetwork:getPrivateNetwork": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getPrivateNetwork.\n",
+                "properties": {
+                    "createdDate": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "instanceIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "region": {
+                        "type": "string"
+                    },
+                    "regionName": {
+                        "type": "string"
+                    },
+                    "updatedAt": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPrivateNetwork.\n",
+                "properties": {
+                    "availableIps": {
+                        "type": "integer"
+                    },
+                    "cidr": {
+                        "type": "string"
+                    },
+                    "createdDate": {
+                        "type": "string"
+                    },
+                    "dataCenter": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "instanceIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "instances": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/contabo:index/getPrivateNetworkInstance:getPrivateNetworkInstance"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "region": {
+                        "type": "string"
+                    },
+                    "regionName": {
+                        "type": "string"
+                    },
+                    "updatedAt": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "availableIps",
+                    "cidr",
+                    "createdDate",
+                    "dataCenter",
+                    "id",
+                    "instances",
+                    "regionName",
+                    "updatedAt"
+                ]
+            }
+        },
+        "contabo:index/getSecret:getSecret": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getSecret.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "updatedAt": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "type",
+                    "value"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSecret.\n",
+                "properties": {
+                    "createdAt": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "updatedAt": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "createdAt",
+                    "id",
+                    "name",
+                    "type",
+                    "updatedAt",
+                    "value"
+                ]
+            }
+        }
+    }
+}
